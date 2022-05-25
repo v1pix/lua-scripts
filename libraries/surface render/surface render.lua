@@ -9,10 +9,10 @@ Cheat.RegisterCallback = function (name, func)
     table.insert(callbacks[name], func)
 
     for callback, funcs in pairs(callbacks) do
-        local run_funcs = function ()
+        local run_funcs = function (...)
             if callback == "draw" then renderer.funcs = {} end
             for _, func in pairs(funcs) do
-                func()
+                func(...)
             end
         end
         register_callback(callback, run_funcs)
