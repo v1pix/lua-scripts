@@ -544,6 +544,7 @@ local painttraverse = function (void, int, bool, bool2)
         for _, render in pairs(renderer.funcs) do
             render()
         end
+        renderer.funcs = {}
     end
     VGUI_Panel(void, int, bool, bool2)
 end
